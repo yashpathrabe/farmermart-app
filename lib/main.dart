@@ -127,7 +127,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'post': PostWidget(),
       'buyers': BuyersWidget(),
       'profile': ProfileWidget(),
-      'postCopy': PostCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -231,26 +230,6 @@ class _NavBarPageState extends State<NavBarPage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 3 ? Color(0xFF090000) : Colors.white,
-                    fontSize: 11.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.post_add_sharp,
-                  color: currentIndex == 4 ? Color(0xFF090000) : Colors.white,
-                  size: 24.0,
-                ),
-                Text(
-                  'Post',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 4 ? Color(0xFF090000) : Colors.white,
                     fontSize: 11.0,
                   ),
                 ),

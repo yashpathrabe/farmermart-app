@@ -10,4 +10,3 @@ export '/pages/profilesettings/profilesettings_widget.dart'
     show ProfilesettingsWidget;
 export '/pages/myposts/myposts_widget.dart' show MypostsWidget;
 export '/pages/buyersss/buyersss_widget.dart' show BuyersssWidget;
-export '/pages/post_copy/post_copy_widget.dart' show PostCopyWidget;

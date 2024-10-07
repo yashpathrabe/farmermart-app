@@ -217,47 +217,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
-        ),
-        FFRoute(
-          name: 'postCopy',
-          path: '/postCopy',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'postCopy')
-              : PostCopyWidget(
-                  category: params.getParam<String>(
-                    'category',
-                    ParamType.String,
-                    isList: true,
-                  ),
-                  entertitle: params.getParam<String>(
-                    'entertitle',
-                    ParamType.String,
-                    isList: true,
-                  ),
-                  itemquantity: params.getParam<String>(
-                    'itemquantity',
-                    ParamType.String,
-                    isList: true,
-                  ),
-                  expectedprice: params.getParam(
-                    'expectedprice',
-                    ParamType.int,
-                  ),
-                  entermobileno: params.getParam<int>(
-                    'entermobileno',
-                    ParamType.int,
-                    isList: true,
-                  ),
-                  selectarea: params.getParam<String>(
-                    'selectarea',
-                    ParamType.String,
-                    isList: true,
-                  ),
-                  uploadimages: params.getParam(
-                    'uploadimages',
-                    ParamType.String,
-                  ),
-                ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
