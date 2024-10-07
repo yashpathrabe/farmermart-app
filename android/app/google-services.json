@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "476589824279",
+    "project_id": "farm-bazzar-sqpdan",
+    "storage_bucket": "farm-bazzar-sqpdan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476589824279:android:e38a5943d8ab0309627f52",
+        "android_client_info": {
+          "package_name": "com.mycompany.farmermart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXa-gpTBBHp-7nbssmcZ5kK8FlBmao-KE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
