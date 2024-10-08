@@ -25,8 +25,12 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
     super.initState();
     _model = createModel(context, () => LoggedInModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'LoggedIn'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('LOGGED_IN_PAGE_LoggedIn_ON_INIT_STATE');
+      logFirebaseEvent('LoggedIn_navigate_to');
+
       context.pushNamed('login');
     });
   }
@@ -73,6 +77,9 @@ class _LoggedInWidgetState extends State<LoggedInWidget> {
                       EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
                   child: FFButtonWidget(
                     onPressed: () async {
+                      logFirebaseEvent('LOGGED_IN_PAGE_GET_STARTED_BTN_ON_TAP');
+                      logFirebaseEvent('Button_navigate_to');
+
                       context.pushNamed('login');
                     },
                     text: 'Get Started',

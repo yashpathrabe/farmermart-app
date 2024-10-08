@@ -27,6 +27,8 @@ class _HomeWidgetState extends State<HomeWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'home'});
   }
 
   @override
@@ -58,6 +60,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                 size: 30.0,
               ),
               onPressed: () async {
+                logFirebaseEvent('HOME_PAGE_arrow_back_rounded_ICN_ON_TAP');
+                logFirebaseEvent('IconButton_navigate_back');
                 context.pop();
               },
             ),
@@ -188,36 +192,50 @@ class _HomeWidgetState extends State<HomeWidget> {
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 19.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 60.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      borderRadius: BorderRadius.circular(30.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'HOME_PAGE_Column_uzyziu18_ON_TAP');
+                                  logFirebaseEvent('Column_navigate_to');
+
+                                  context.pushNamed('buyersscreen');
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: 60.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        borderRadius:
+                                            BorderRadius.circular(30.0),
+                                      ),
+                                      child: Icon(
+                                        Icons.shopping_cart,
+                                        color: Colors.white,
+                                        size: 30.0,
+                                      ),
                                     ),
-                                    child: Icon(
-                                      Icons.shopping_cart,
-                                      color: Colors.white,
-                                      size: 30.0,
+                                    Text(
+                                      'Buy',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
-                                  ),
-                                  Text(
-                                    'Buy',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(height: 8.0)),
+                                  ].divide(SizedBox(height: 8.0)),
+                                ),
                               ),
                             ),
                             Padding(
@@ -229,6 +247,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'HOME_PAGE_Column_nz6cqmjy_ON_TAP');
+                                  logFirebaseEvent('Column_navigate_to');
+
                                   context.pushNamed('post');
                                 },
                                 child: Column(
@@ -274,6 +296,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'HOME_PAGE_Column_rqgbdgmo_ON_TAP');
+                                  logFirebaseEvent('Column_launch_u_r_l');
                                   await launchURL('https://chatgpt.com/');
                                 },
                                 child: Column(
@@ -344,6 +369,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    logFirebaseEvent(
+                                        'HOME_PAGE_Column_jf2gfawh_ON_TAP');
+                                    logFirebaseEvent('Column_launch_u_r_l');
                                     await launchURL(
                                         'https://www.bighaat.com/?srsltid=AfmBOopw_chYbDd5grzjwTQuUqThPlVemWipkPJF5tOkO6NR9GkSWLlc');
                                   },
@@ -403,6 +431,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    logFirebaseEvent(
+                                        'HOME_PAGE_Column_vgj1i10i_ON_TAP');
+                                    logFirebaseEvent('Column_launch_u_r_l');
                                     await launchURL(
                                         'https://www.napanta.com/market-price/maharashtra/nagpur/nagpur');
                                   },
@@ -457,6 +488,9 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
+                                  logFirebaseEvent(
+                                      'HOME_PAGE_Column_qtkw90hu_ON_TAP');
+                                  logFirebaseEvent('Column_launch_u_r_l');
                                   await launchURL('https://pmkisan.gov.in/');
                                 },
                                 child: Column(

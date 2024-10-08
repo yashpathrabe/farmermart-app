@@ -26,6 +26,7 @@ class _ForgotWidgetState extends State<ForgotWidget> {
     super.initState();
     _model = createModel(context, () => ForgotModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'forgot'});
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
   }
@@ -56,6 +57,8 @@ class _ForgotWidgetState extends State<ForgotWidget> {
             size: 30.0,
           ),
           onPressed: () async {
+            logFirebaseEvent('FORGOT_arrow_back_rounded_ICN_ON_TAP');
+            logFirebaseEvent('IconButton_navigate_back');
             context.pop();
           },
         ),
@@ -89,6 +92,8 @@ class _ForgotWidgetState extends State<ForgotWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
+                      logFirebaseEvent('FORGOT_PAGE_Row_sssw0ai7_ON_TAP');
+                      logFirebaseEvent('Row_navigate_back');
                       context.safePop();
                     },
                     child: Row(
@@ -232,6 +237,8 @@ class _ForgotWidgetState extends State<ForgotWidget> {
                       EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
+                      logFirebaseEvent('FORGOT_PAGE_Button-Login_ON_TAP');
+                      logFirebaseEvent('Button-Login_auth');
                       if (_model.emailAddressTextController.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(

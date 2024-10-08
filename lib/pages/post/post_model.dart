@@ -10,7 +10,6 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'post_widget.dart' show PostWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,12 +17,9 @@ import 'package:provider/provider.dart';
 class PostModel extends FlutterFlowModel<PostWidget> {
   ///  State fields for stateful widgets in this page.
 
-  DateTime? datePicked;
   // State field(s) for category widget.
   String? categoryValue;
   FormFieldController<String>? categoryValueController;
-  // Stores action output result for [Backend Call - Create Document] action in category widget.
-  PostRecord? crop;
   // State field(s) for entertitle widget.
   FocusNode? entertitleFocusNode;
   TextEditingController? entertitleTextController;

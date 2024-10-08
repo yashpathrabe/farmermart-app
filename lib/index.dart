@@ -9,4 +9,5 @@ export '/pages/profile/profile_widget.dart' show ProfileWidget;
 export '/pages/profilesettings/profilesettings_widget.dart'
     show ProfilesettingsWidget;
 export '/pages/myposts/myposts_widget.dart' show MypostsWidget;
-export '/pages/buyersss/buyersss_widget.dart' show BuyersssWidget;
+export '/pages/buyersscreen/buyersscreen_widget.dart' show BuyersscreenWidget;
+export '/phone/phone_widget.dart' show PhoneWidget;

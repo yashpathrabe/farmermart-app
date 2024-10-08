@@ -125,7 +125,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'home': HomeWidget(),
       'post': PostWidget(),
-      'buyers': BuyersWidget(),
+      'buyersscreen': BuyersscreenWidget(),
       'profile': ProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -186,7 +186,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   size: 24.0,
                 ),
                 Text(
-                  'Post',
+                  'Seller',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 1 ? Color(0xFF090000) : Colors.white,
@@ -201,12 +201,12 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.shopping_cart,
+                  Icons.shopping_cart_outlined,
                   color: currentIndex == 2 ? Color(0xFF090000) : Colors.white,
                   size: 24.0,
                 ),
                 Text(
-                  'Buy',
+                  'Buyers',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 2 ? Color(0xFF090000) : Colors.white,

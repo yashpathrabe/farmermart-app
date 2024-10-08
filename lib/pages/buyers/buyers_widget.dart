@@ -25,6 +25,7 @@ class _BuyersWidgetState extends State<BuyersWidget> {
     super.initState();
     _model = createModel(context, () => BuyersModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'buyers'});
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
   }
@@ -57,6 +58,8 @@ class _BuyersWidgetState extends State<BuyersWidget> {
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('BUYERS_arrow_back_rounded_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_back');
               context.pop();
             },
           ),

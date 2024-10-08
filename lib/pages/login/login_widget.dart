@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -36,6 +35,7 @@ class _LoginWidgetState extends State<LoginWidget>
     super.initState();
     _model = createModel(context, () => LoginModel());
 
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'login'});
     _model.tabBarController = TabController(
       vsync: this,
       length: 2,
@@ -140,6 +140,9 @@ class _LoginWidgetState extends State<LoginWidget>
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('LOGIN_PAGE_arrow_back_rounded_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_to');
+
               context.pushNamed('LoggedIn');
             },
           ),
@@ -266,7 +269,45 @@ class _LoginWidgetState extends State<LoginWidget>
                                     ],
                                     controller: _model.tabBarController,
                                     onTap: (i) async {
-                                      [() async {}, () async {}][i]();
+                                      [
+                                        () async {},
+                                        () async {
+                                          logFirebaseEvent(
+                                              'LOGIN_PAGE_Tab_2poegeec_ON_TAP');
+                                          logFirebaseEvent('Tab_auth');
+                                          GoRouter.of(context)
+                                              .prepareAuthEvent();
+                                          if (_model.passwordTextController
+                                                  .text !=
+                                              _model
+                                                  .passwordConfirmTextController
+                                                  .text) {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Passwords don\'t match!',
+                                                ),
+                                              ),
+                                            );
+                                            return;
+                                          }
+
+                                          final user = await authManager
+                                              .createAccountWithEmail(
+                                            context,
+                                            _model.emailAddressTextController
+                                                .text,
+                                            _model.passwordTextController.text,
+                                          );
+                                          if (user == null) {
+                                            return;
+                                          }
+
+                                          context.goNamedAuth(
+                                              'home', context.mounted);
+                                        }
+                                      ][i]();
                                     },
                                   ),
                                 ),
@@ -549,6 +590,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           0.0, 0.0, 0.0, 16.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'LOGIN_PAGE_SIGN_IN_BTN_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Button_auth');
                                                       GoRouter.of(context)
                                                           .prepareAuthEvent();
 
@@ -566,6 +611,9 @@ class _LoginWidgetState extends State<LoginWidget>
                                                       if (user == null) {
                                                         return;
                                                       }
+
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_to');
 
                                                       context.pushNamedAuth(
                                                           'home',
@@ -625,6 +673,11 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           0.0, 0.0, 0.0, 16.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'LOGIN_PAGE_FORGOT_PASSWORD_BTN_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_to');
+
                                                       context
                                                           .pushNamed('forgot');
                                                     },
@@ -754,6 +807,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 FFButtonWidget(
                                                               onPressed:
                                                                   () async {
+                                                                logFirebaseEvent(
+                                                                    'LOGIN_CONTINUE_WITH_GOOGLE_BTN_ON_TAP');
+                                                                logFirebaseEvent(
+                                                                    'Button_auth');
                                                                 GoRouter.of(
                                                                         context)
                                                                     .prepareAuthEvent();
@@ -991,19 +1048,6 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         .passwordCreateTextController,
                                                     focusNode: _model
                                                         .passwordCreateFocusNode,
-                                                    onFieldSubmitted:
-                                                        (_) async {
-                                                      safeSetState(() {
-                                                        _model
-                                                            .passwordTextController
-                                                            ?.text = 'N';
-                                                        _model.passwordTextController
-                                                                ?.selection =
-                                                            TextSelection
-                                                                .collapsed(
-                                                                    offset: 0);
-                                                      });
-                                                    },
                                                     autofocus: false,
                                                     autofillHints: [
                                                       AutofillHints.password
@@ -1258,6 +1302,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           0.0, 0.0, 0.0, 16.0),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'LOGIN_PAGE_CREATE_ACCOUNT_BTN_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Button_auth');
                                                       GoRouter.of(context)
                                                           .prepareAuthEvent();
                                                       if (_model
@@ -1282,7 +1330,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                           .createAccountWithEmail(
                                                         context,
                                                         _model
-                                                            .emailAddressTextController
+                                                            .emailAddressCreateTextController
                                                             .text,
                                                         _model
                                                             .passwordTextController
@@ -1292,13 +1340,8 @@ class _LoginWidgetState extends State<LoginWidget>
                                                         return;
                                                       }
 
-                                                      await DataRecord
-                                                          .collection
-                                                          .doc(user.uid)
-                                                          .update(
-                                                              createDataRecordData(
-                                                            email: '',
-                                                          ));
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_to');
 
                                                       context.pushNamedAuth(
                                                           'home',
@@ -1431,6 +1474,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                 FFButtonWidget(
                                                               onPressed:
                                                                   () async {
+                                                                logFirebaseEvent(
+                                                                    'LOGIN_CONTINUE_WITH_GOOGLE_BTN_ON_TAP');
+                                                                logFirebaseEvent(
+                                                                    'Button_auth');
                                                                 GoRouter.of(
                                                                         context)
                                                                     .prepareAuthEvent();
@@ -1442,8 +1489,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                     null) {
                                                                   return;
                                                                 }
+                                                                logFirebaseEvent(
+                                                                    'Button_navigate_to');
 
-                                                                context.goNamedAuth(
+                                                                context.pushNamedAuth(
                                                                     'home',
                                                                     context
                                                                         .mounted);

@@ -141,12 +141,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'buyers',
           path: '/buyers',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'buyers')
-              : NavBarPage(
-                  initialPage: 'buyers',
-                  page: BuyersWidget(),
-                ),
+          builder: (context, params) => BuyersWidget(),
         ),
         FFRoute(
           name: 'home',
@@ -180,43 +175,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => MypostsWidget(),
         ),
         FFRoute(
-          name: 'buyersss',
-          path: '/buyersss',
-          builder: (context, params) => BuyersssWidget(
-            category: params.getParam(
-              'category',
-              ParamType.String,
-            ),
-            entertitle: params.getParam(
-              'entertitle',
-              ParamType.String,
-            ),
-            itemquantity: params.getParam(
-              'itemquantity',
-              ParamType.int,
-            ),
-            expectedprice: params.getParam(
-              'expectedprice',
-              ParamType.int,
-            ),
-            availablefrom: params.getParam<DateTimeRange>(
-              'availablefrom',
-              ParamType.DateTimeRange,
-              isList: true,
-            ),
-            entermobileno: params.getParam(
-              'entermobileno',
-              ParamType.int,
-            ),
-            selectarea: params.getParam(
-              'selectarea',
-              ParamType.String,
-            ),
-            uploadimages: params.getParam(
-              'uploadimages',
-              ParamType.String,
-            ),
-          ),
+          name: 'buyersscreen',
+          path: '/buyersscreen',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'buyersscreen')
+              : NavBarPage(
+                  initialPage: 'buyersscreen',
+                  page: BuyersscreenWidget(),
+                ),
+        ),
+        FFRoute(
+          name: 'phone',
+          path: '/phone',
+          builder: (context, params) => PhoneWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

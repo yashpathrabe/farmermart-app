@@ -24,6 +24,8 @@ class _MypostsWidgetState extends State<MypostsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MypostsModel());
+
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'Myposts'});
   }
 
   @override
@@ -53,6 +55,9 @@ class _MypostsWidgetState extends State<MypostsWidget> {
               size: 30.0,
             ),
             onPressed: () async {
+              logFirebaseEvent('MYPOSTS_arrow_back_ios_sharp_ICN_ON_TAP');
+              logFirebaseEvent('IconButton_navigate_to');
+
               context.pushNamed('profile');
             },
           ),
